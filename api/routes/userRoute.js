@@ -1,5 +1,5 @@
 const express = require("express");
-const Hotel = require("../models/HotelsModel.js");
+const User = require("../models/UserModel.js")
 const { updateUser, deleteUser, findUser, findAllUser } = require("../controllers/userController.js");
 
 const router = express.Router();

@@ -51,11 +51,9 @@ const deleteRoom = async (req, res, next) => {
   }
 };
 
-const getRoom = async (req, res, next) => {
-  console.log("This is a rooms route");
-  // return next();
+const getRoom = async (req, res) => {
   try {
-    const Room = await Rooms.find(req.params.id);
+    const Room = await Rooms.findById(req.params.id);
     res.status(200).json(Room);
   } catch (err) {
     res.status(500).json(err);
@@ -65,11 +63,12 @@ const getRoom = async (req, res, next) => {
 
 const getAllRoom = async (req, res) => {
   try {
-    const foundRooms = await Rooms.findById(req.params.id);
+    const foundRooms = await Rooms.find(req.params.id);
     res.status(200).json(foundRooms);
     res.status(200).send(foundRooms);
   } catch (err) {
     res.status(500).json(err);
+    console.log(`Here error occours ${err}`);
   }
 };
 

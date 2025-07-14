@@ -4,7 +4,8 @@ const { createRoom, updateRoom, deleteRoom, getRoom, getAllRoom } = require("../
 
 const router = express.Router();
 
-router.post("/:hotelId", createRoom);
+// router.post("/:hotelId", createRoom);
+router.post("/", createRoom);
 
 router.put("/:id", updateRoom);
 

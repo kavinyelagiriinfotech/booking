@@ -67,6 +67,7 @@ const getAllRoom = async (req, res) => {
   try {
     const foundRooms = await Rooms.findById(req.params.id);
     res.status(200).json(foundRooms);
+    res.status(200).send(foundRooms);
   } catch (err) {
     res.status(500).json(err);
   }

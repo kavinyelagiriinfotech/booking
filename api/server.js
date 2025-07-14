@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 connectDB();
 
 app.get("/", (req, res) => {
-  res.send("Sample text here");
+  res.send("Luxtansa services");
 });
 
 //Middlewares

@@ -10,10 +10,10 @@ router.put("/:id", updateRoom);
 
 router.delete("/:id/:hotelId", deleteRoom);
 
-//Get
-router.get("/", getRoom);
-
 //GetAll
-router.get("/:id", getAllRoom);
+router.get("/", getAllRoom);
+
+//Get
+router.get("/:id", getRoom);
 
 module.exports = router;

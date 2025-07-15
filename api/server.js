@@ -1,13 +1,14 @@
 const express = require("express");
+const cors = require("cors");
+
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-// let connect = require("mongoose");
 const connectDB = require("./config/dbConnection.js");
 const authRoute = require("./routes/authRoute.js");
 const hotelRoute = require("./routes/hotelsRoute.js");
 const userRoute = require("./routes/userRoute.js");
 const roomsRoute = require("./routes/roomsRoute.js");
-const bookingRoute = require("./routes/bookingRoute.js")
+const bookingRoute = require("./routes/bookingRoute.js");
 const cookieParser = require("cookie-parser");
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 //Middlewares
+app.use(cors());  
 
 app.use(express.json());
 app.use(cookieParser());
@@ -30,7 +32,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelRoute);
 app.use("/api/users", userRoute);
 app.use("/api/rooms", roomsRoute);
-app.use("/booking", bookingRoute)
+app.use("/api/booking", bookingRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
@@ -44,6 +46,8 @@ app.use((err, req, res, next) => {
   // console.log("This is a middleware text");
   // res.send("Data from middleware");
 });
+
+// app.use(cors());
 
 app.listen(PORT, (req, res) => {
   console.log(`Server running in port:${PORT} & connected to backend`);

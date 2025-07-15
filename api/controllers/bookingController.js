@@ -2,7 +2,7 @@ const Booking = require("../models/BookingModel");
 
 const jwt = require("jsonwebtoken");
 
-const createBooking = async (req, res, next) => {
+const createBooking = async (req, res) => {
   const newBooking = new Booking(req.body);
   try {
     const savedBooking = await newBooking.save();

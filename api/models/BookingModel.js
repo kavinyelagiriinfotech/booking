@@ -10,7 +10,7 @@ const BookingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  contact: {
+  phone: {
     type: Number,
     required: true,
   },
@@ -34,7 +34,7 @@ const BookingSchema = new mongoose.Schema({
     type: Number,
   },
   specialRequests: {
-    type: Boolean,
+    type: String,
   },
   locationFrom: {
     type: String,
@@ -49,7 +49,7 @@ const BookingSchema = new mongoose.Schema({
     required: true,
   },
   arrivalTime: {
-    type: Number,
+    type: String,
   },
 });
 
